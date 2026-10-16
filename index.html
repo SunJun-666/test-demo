@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="test-demo 浏览器访问与交互测试页面">
+  <title>test-demo · 页面测试</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, "Microsoft YaHei", sans-serif; color: #152c34; background: #eef3f1; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; padding: 32px 24px; display: grid; place-items: center; }
+    main { width: min(920px, 100%); }
+    header, footer { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .brand { font-weight: 750; letter-spacing: -.04em; font-size: 24px; }
+    .badge { background: #dceae2; color: #235d43; padding: 8px 14px; border-radius: 30px; font-size: 13px; }
+    article { margin: 32px 0 24px; border: 1px solid #d5e0da; border-radius: 28px; overflow: hidden; background: #fff; box-shadow: 0 20px 70px #153e2910; }
+    .hero { padding: clamp(28px, 6vw, 64px); background: linear-gradient(120deg, #fbfdfb, #e1f0e7); }
+    .eyebrow { color: #4b735d; font-size: 12px; font-weight: 700; letter-spacing: .14em; }
+    h1 { margin: 20px 0; font-size: clamp(34px, 6vw, 58px); line-height: 1.18; letter-spacing: -.04em; }
+    p { color: #586c63; line-height: 1.8; }
+    .checks { padding: 16px clamp(28px, 6vw, 64px) 32px; }
+    .row { padding: 20px 0; border-bottom: 1px solid #edf1ee; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .value { color: #28734e; overflow-wrap: anywhere; max-width: 100%; }
+    .interaction { margin-top: 28px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    button { border: 0; border-radius: 12px; padding: 14px 22px; background: #1c6244; color: white; font: inherit; cursor: pointer; }
+    button:hover { background: #124c32; }
+    button:focus-visible, a:focus-visible { outline: 3px solid #ba8628; outline-offset: 4px; }
+    footer { color: #64786c; font-size: 13px; }
+    a { color: #276246; }
+  </style>
+</head>
+<body>
+  <main>
+    <header><span class="brand">test-demo<span style="color:#4f956f">.</span></span><span class="badge">浏览器测试页</span></header>
+    <article>
+      <section class="hero">
+        <span class="eyebrow">HELLO, WEB / 001</span>
+        <h1>页面已成功打开。<br>来做一次小测试。</h1>
+        <p>这是 test-demo 的静态测试页面。检查下方信息，再点击按钮，验证浏览器中的脚本交互。</p>
+      </section>
+      <section class="checks" aria-label="页面检查">
+        <div class="row"><span>页面加载</span><span class="value">HTML 与样式已显示</span></div>
+        <div class="row"><span>JavaScript</span><span class="value" id="script-status">尚未运行</span></div>
+        <div class="row"><span>访问方式</span><span class="value" id="protocol">等待检测</span></div>
+        <div class="row"><span>本次打开时间</span><time class="value" id="opened-at">等待检测</time></div>
+        <div class="interaction"><button id="test-button" type="button">点击测试交互</button><span id="result" role="status" aria-live="polite">等待第一次点击</span></div>
+        <noscript><p>浏览器禁用了 JavaScript，请启用后刷新页面进行交互测试。</p></noscript>
+      </section>
+    </article>
+    <footer><span>test-demo / 静态页面 · 无需安装依赖</span><a href="https://github.com/SunJun-666/test-demo">查看 GitHub 仓库 ↗</a></footer>
+  </main>
+  <script>
+    document.getElementById('script-status').textContent = '运行正常';
+    document.getElementById('protocol').textContent = location.protocol === 'file:' ? '本地文件' : location.protocol.replace(':', '').toUpperCase();
+    const openedAt = new Date();
+    const time = document.getElementById('opened-at');
+    time.dateTime = openedAt.toISOString();
+    time.textContent = openedAt.toLocaleString('zh-CN', { hour12: false });
+    let clicks = 0;
+    document.getElementById('test-button').addEventListener('click', () => {
+      clicks += 1;
+      document.getElementById('result').textContent = `交互正常 · 已点击 ${clicks} 次`;
+    });
+  </script>
+</body>
+</html>

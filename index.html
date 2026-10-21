@@ -3,64 +3,48 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="test-demo 浏览器访问与交互测试页面">
-  <title>test-demo · 页面测试</title>
-  <style>
-    :root { color-scheme: light; font-family: system-ui, "Microsoft YaHei", sans-serif; color: #152c34; background: #eef3f1; }
-    * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; padding: 32px 24px; display: grid; place-items: center; }
-    main { width: min(920px, 100%); }
-    header, footer { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: center; }
-    .brand { font-weight: 750; letter-spacing: -.04em; font-size: 24px; }
-    .badge { background: #dceae2; color: #235d43; padding: 8px 14px; border-radius: 30px; font-size: 13px; }
-    article { margin: 32px 0 24px; border: 1px solid #d5e0da; border-radius: 28px; overflow: hidden; background: #fff; box-shadow: 0 20px 70px #153e2910; }
-    .hero { padding: clamp(28px, 6vw, 64px); background: linear-gradient(120deg, #fbfdfb, #e1f0e7); }
-    .eyebrow { color: #4b735d; font-size: 12px; font-weight: 700; letter-spacing: .14em; }
-    h1 { margin: 20px 0; font-size: clamp(34px, 6vw, 58px); line-height: 1.18; letter-spacing: -.04em; }
-    p { color: #586c63; line-height: 1.8; }
-    .checks { padding: 16px clamp(28px, 6vw, 64px) 32px; }
-    .row { padding: 20px 0; border-bottom: 1px solid #edf1ee; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-    .value { color: #28734e; overflow-wrap: anywhere; max-width: 100%; }
-    .interaction { margin-top: 28px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-    button { border: 0; border-radius: 12px; padding: 14px 22px; background: #1c6244; color: white; font: inherit; cursor: pointer; }
-    button:hover { background: #124c32; }
-    button:focus-visible, a:focus-visible { outline: 3px solid #ba8628; outline-offset: 4px; }
-    footer { color: #64786c; font-size: 13px; }
-    a { color: #276246; }
-  </style>
+  <meta name="description" content="参考洄游 access 官网制作的跨境服务静态演示网站。">
+  <meta name="theme-color" content="#17449e">
+  <title>洄游 access · 跨境服务静态演示</title>
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
 </head>
 <body>
-  <main>
-    <header><span class="brand">test-demo<span style="color:#4f956f">.</span></span><span class="badge">浏览器测试页</span></header>
-    <article>
-      <section class="hero">
-        <span class="eyebrow">HELLO, WEB / 001</span>
-        <h1>页面已成功打开。<br>来做一次小测试。</h1>
-        <p>这是 test-demo 的静态测试页面。检查下方信息，再点击按钮，验证浏览器中的脚本交互。</p>
-      </section>
-      <section class="checks" aria-label="页面检查">
-        <div class="row"><span>页面加载</span><span class="value">HTML 与样式已显示</span></div>
-        <div class="row"><span>JavaScript</span><span class="value" id="script-status">尚未运行</span></div>
-        <div class="row"><span>访问方式</span><span class="value" id="protocol">等待检测</span></div>
-        <div class="row"><span>本次打开时间</span><time class="value" id="opened-at">等待检测</time></div>
-        <div class="interaction"><button id="test-button" type="button">点击测试交互</button><span id="result" role="status" aria-live="polite">等待第一次点击</span></div>
-        <noscript><p>浏览器禁用了 JavaScript，请启用后刷新页面进行交互测试。</p></noscript>
-      </section>
-    </article>
-    <footer><span>test-demo / 静态页面 · 无需安装依赖</span><a href="https://github.com/SunJun-666/test-demo">查看 GitHub 仓库 ↗</a></footer>
+  <a class="skip-link" href="#main">跳转到主要内容</a>
+  <header class="site-header"><div class="nav-wrap">
+    <a class="brand" href="#home" aria-label="洄游 access 首页"><img src="assets/logo.png" alt="access 洄游" width="253" height="28"><span>跨境服务 · 静态演示</span></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="打开导航">☰</button>
+    <nav id="navigation" aria-label="主导航"><a href="#product">关于产品</a><a href="#solutions">行业解决方案</a><a href="#security">严守安全</a><a href="#platform">开放平台</a><a href="#news">洄游动态</a><a href="#about">关于我们</a></nav>
+    <div class="account-actions"><button class="button outline small" type="button" data-dialog="login">登录</button><button class="button small" type="button" data-dialog="register">注册</button></div>
+  </div></header>
+  <main id="main">
+    <section class="hero" id="home" aria-roledescription="轮播图" aria-label="服务介绍">
+      <div class="slide slide-one" data-slide="0"><div class="hero-content"><p class="eyebrow">CONNECT YOUR BUSINESS TO THE WORLD</p><h1>跨越边界，让价值洄游</h1><p class="hero-subtitle">从跨境结算到税务服务，让企业的全球业务更从容</p><div class="hero-features"><div><span>▤</span>结算流程，清晰可见</div><div><span>◎</span>跨境协作，高效连接</div><div><span>▧</span>凭证管理，有据可循</div><div><span>◇</span>专业支持，全程相伴</div></div><a class="hero-link" href="#product">探索我们的服务 <span>→</span></a></div></div>
+      <div class="slide slide-two" data-slide="1" hidden><div class="hero-content"><p class="eyebrow">SECURITY AT EVERY STEP</p><h2>每一次信任，都值得守护</h2><p class="hero-subtitle">以清晰流程与安全意识，连接每一个业务环节</p><p class="slide-copy">从身份核验到信息管理，让安全贯穿服务始终。</p><a class="hero-link" href="#security">了解安全理念 <span>→</span></a></div></div>
+      <div class="slide slide-three" data-slide="2" hidden><div class="hero-content"><p class="eyebrow">YOUR BUSINESS, OUR COMMITMENT</p><h2>以专业，陪伴每一步出海</h2><p class="hero-subtitle">看见真实需求，为跨境企业梳理合适的服务路径</p><p class="slide-copy">开放沟通 · 用心服务 · 长期陪伴</p><button class="hero-link" type="button" data-dialog="consult">咨询服务方案 <span>→</span></button></div></div>
+      <button class="carousel-arrow previous" type="button" aria-label="上一张">‹</button><button class="carousel-arrow next" type="button" aria-label="下一张">›</button>
+      <div class="carousel-dots" aria-label="切换轮播"><button type="button" class="active" aria-label="第 1 张" aria-pressed="true" data-go="0"></button><button type="button" aria-label="第 2 张" aria-pressed="false" data-go="1"></button><button type="button" aria-label="第 3 张" aria-pressed="false" data-go="2"></button></div>
+    </section>
+    <div class="service-strip container"><a href="#product"><span class="strip-icon">01</span><div><strong>跨境结算</strong><span>连接境内与境外业务</span></div><span class="strip-arrow">↗</span></a><a href="#solutions"><span class="strip-icon">02</span><div><strong>行业方案</strong><span>围绕不同业务场景</span></div><span class="strip-arrow">↗</span></a><a href="#security"><span class="strip-icon">03</span><div><strong>安全保障</strong><span>关注每一个服务环节</span></div><span class="strip-arrow">↗</span></a></div>
+    <section class="section product container" id="product">
+      <div class="section-heading"><p class="eyebrow blue">OUR SERVICES</p><h2>连接全球，服务于你</h2><p>围绕跨境企业的实际需求，让复杂的业务流程更加清晰</p></div>
+      <div class="product-layout"><div class="map-visual"><span class="map-orbit"></span><img src="assets/world-map.png" alt="跨境业务连接示意图" width="421" height="318" loading="lazy"><div class="map-tag"><i></i> CONNECTING POSSIBILITIES</div></div><div class="product-copy"><span class="section-number">01 / 跨境服务</span><h3>让业务走向世界<br>让服务回到身边</h3><p>从业务场景出发，梳理结算、材料和凭证管理等环节，帮助企业建立更清楚的跨境服务路径。</p><ul class="check-list"><li>按业务需求梳理服务方案</li><li>关注流程衔接与资料完整性</li><li>支持多方协作与进度沟通</li></ul><button class="button" type="button" data-dialog="consult">了解服务方案 <span>→</span></button></div></div>
+    </section>
+    <section class="section solutions" id="solutions"><div class="container"><div class="section-heading"><p class="eyebrow blue">INDUSTRY SOLUTIONS</p><h2>不同的行业，同样的用心</h2><p>以场景为起点，找到适合你的跨境服务思路</p></div>
+      <div class="tabs" role="tablist" aria-label="行业方案"><button class="active" id="tab-trade" role="tab" aria-selected="true" aria-controls="solution-panel" data-industry="trade" type="button">跨境贸易</button><button id="tab-digital" role="tab" aria-selected="false" aria-controls="solution-panel" data-industry="digital" tabindex="-1" type="button">数字服务</button><button id="tab-global" role="tab" aria-selected="false" aria-controls="solution-panel" data-industry="global" tabindex="-1" type="button">企业出海</button><button id="tab-collaboration" role="tab" aria-selected="false" aria-controls="solution-panel" data-industry="collaboration" tabindex="-1" type="button">跨境协作</button></div>
+      <div class="solution-panel" id="solution-panel" role="tabpanel" aria-labelledby="tab-trade" tabindex="0"><div class="solution-copy"><span class="section-number" id="solution-kicker">GLOBAL TRADE</span><h3 id="solution-title">贸易无界，协作有序</h3><p id="solution-description">围绕跨境贸易中的业务协作、结算材料与凭证整理需求，构建清晰的服务流程，让团队把精力留给业务增长。</p><div class="solution-tags" id="solution-tags"><span>业务梳理</span><span>材料管理</span><span>流程协同</span></div><button class="text-button" type="button" data-dialog="consult">咨询行业方案 <span>→</span></button></div><div class="flow-visual" aria-label="服务流程示意"><div class="flow-top"><i></i> 服务协作流程 <span>示意</span></div><div class="flow-item"><b>01</b><div><strong>沟通业务需求</strong><small>理解场景 · 明确目标</small></div><em>✓</em></div><div class="flow-connector"></div><div class="flow-item"><b>02</b><div><strong>梳理服务方案</strong><small>资料准备 · 流程确认</small></div><em>✓</em></div><div class="flow-connector"></div><div class="flow-item"><b>03</b><div><strong>协作推进交付</strong><small>跟踪进度 · 整理凭证</small></div><em>✓</em></div></div></div>
+    </div></section>
+    <section class="section container" id="advantages"><div class="section-heading"><p class="eyebrow blue">WHY CHOOSE US</p><h2>把专业，放进每一个细节</h2><p>从第一次沟通，到每一个服务环节</p></div><div class="advantage-grid">
+      <article><span>↗</span><h3>轻松开始</h3><p>清楚了解服务步骤与所需资料，减少来回沟通。</p></article><article><span>▤</span><h3>流程清晰</h3><p>梳理关键节点，让业务进度与协作事项有迹可循。</p></article><article><span>◇</span><h3>关注安全</h3><p>重视业务信息与资料管理，建立细致的服务习惯。</p></article><article><span>⊞</span><h3>场景适配</h3><p>理解不同规模、不同阶段企业的跨境业务需求。</p></article><article><span>◷</span><h3>高效协同</h3><p>让信息及时传递，连接团队与服务中的每一方。</p></article><article><span>♧</span><h3>专业陪伴</h3><p>围绕具体问题沟通，提供更易理解的服务说明。</p></article>
+    </div></section>
+    <section class="security section" id="security"><div class="container security-layout"><div><p class="eyebrow light">BUILT ON TRUST</p><h2>用心守护<br>每一份信任</h2><p class="security-intro">将安全意识融入业务流程，<br>让信息管理更清楚，让服务协作更安心。</p><a class="hero-link" href="#platform">了解服务流程 <span>→</span></a></div><div class="security-grid"><article><span>01 / IDENTITY</span><h3>身份核验</h3><p>明确业务参与方与资料要求。</p></article><article><span>02 / PRIVACY</span><h3>信息保护</h3><p>重视个人信息与业务资料的使用边界。</p></article><article><span>03 / TRACEABILITY</span><h3>流程留痕</h3><p>围绕关键业务环节整理记录。</p></article><article><span>04 / COMMUNICATION</span><h3>透明沟通</h3><p>明确服务范围、进度与责任分工。</p></article></div></div></section>
+    <section class="section container platform" id="platform"><div class="section-heading"><p class="eyebrow blue">A CONNECTED EXPERIENCE</p><h2>服务全流程，一目了然</h2><p>从了解需求开始，让每一次协作都有方向</p></div><div class="steps"><article><span>01</span><h3>了解需求</h3><p>沟通业务背景与服务目标</p></article><article><span>02</span><h3>准备资料</h3><p>梳理材料清单与业务信息</p></article><article><span>03</span><h3>确认方案</h3><p>明确流程与服务边界</p></article><article><span>04</span><h3>协作交付</h3><p>跟踪进度并整理服务记录</p></article></div><p class="platform-note">本页面为静态展示，不提供实际支付、开户或业务办理服务。</p></section>
+    <section class="news-section section" id="news"><div class="container"><div class="heading-inline"><div><p class="eyebrow blue">INSIGHTS & UPDATES</p><h2>与世界连接，和变化同行</h2></div><span class="quiet-label">内容示例 / DEMO</span></div><div class="news-grid"><button class="news-card" type="button" data-article="0"><div class="news-art art-one"><span>GLOBAL<br>CONNECTION</span><i>↗</i></div><div class="news-body"><span class="news-category">行业观察 · 示例文章</span><h3>从业务出发，理解跨境协作中的关键环节</h3><span class="read-more">阅读内容 <b>→</b></span></div></button><button class="news-card" type="button" data-article="1"><div class="news-art art-two"><span>EVERY<br>DETAIL MATTERS</span><i>◎</i></div><div class="news-body"><span class="news-category">服务指南 · 示例文章</span><h3>一次高效的服务沟通，可以从哪些准备开始？</h3><span class="read-more">阅读内容 <b>→</b></span></div></button><button class="news-card" type="button" data-article="2"><div class="news-art art-three"><span>BUILD<br>WITH TRUST</span><i>◇</i></div><div class="news-body"><span class="news-category">安全理念 · 示例文章</span><h3>让信息管理与安全意识，贯穿每一次业务协作</h3><span class="read-more">阅读内容 <b>→</b></span></div></button></div></div></section>
+    <section class="contact-banner" id="about"><div class="container"><div><p class="eyebrow light">LET'S CONNECT</p><h2>世界很大，服务就在身边</h2><p>从一次沟通，开始探索适合你的跨境服务方案。</p></div><button class="button white" type="button" data-dialog="consult">立即咨询 <span>→</span></button></div></section>
   </main>
-  <script>
-    document.getElementById('script-status').textContent = '运行正常';
-    document.getElementById('protocol').textContent = location.protocol === 'file:' ? '本地文件' : location.protocol.replace(':', '').toUpperCase();
-    const openedAt = new Date();
-    const time = document.getElementById('opened-at');
-    time.dateTime = openedAt.toISOString();
-    time.textContent = openedAt.toLocaleString('zh-CN', { hour12: false });
-    let clicks = 0;
-    document.getElementById('test-button').addEventListener('click', () => {
-      clicks += 1;
-      document.getElementById('result').textContent = `交互正常 · 已点击 ${clicks} 次`;
-    });
-  </script>
+  <footer class="site-footer"><div class="container footer-top"><div class="footer-brand"><img src="assets/logo.png" alt="access 洄游" width="253" height="28" loading="lazy"><p>连接全球业务，让服务更有温度。</p><span class="demo-tag">静态仿制演示</span></div><div class="footer-links"><strong>探索服务</strong><a href="#product">关于产品</a><a href="#solutions">行业解决方案</a><a href="#security">安全理念</a></div><div class="footer-links"><strong>了解更多</strong><a href="#platform">服务流程</a><a href="#news">内容动态</a><a href="https://www.huiyoux.com" target="_blank" rel="noopener noreferrer">访问参考网站 ↗</a></div><div class="footer-contact"><strong>欢迎交流</strong><p>这是用于页面与交互测试的演示站点。</p><button class="text-button" type="button" data-dialog="consult">打开咨询演示 →</button></div></div><div class="container footer-bottom"><span>© <span id="year">2026</span> test-demo · 静态网站演示</span><span>设计参考 huiyoux.com，非官方网站。品牌与参考图片归原权利人所有。</span><a href="#home">返回顶部 ↑</a></div></footer>
+  <button class="floating-consult" type="button" data-dialog="consult" aria-label="打开在线咨询演示"><span aria-hidden="true">☏</span>在线咨询</button>
+  <dialog id="service-dialog" aria-labelledby="dialog-title"><div class="dialog-header"><span class="eyebrow blue">ACCESS / DEMO</span><button class="dialog-close" type="button" aria-label="关闭弹窗">×</button></div><h2 id="dialog-title">咨询服务方案</h2><p id="dialog-description">此表单仅演示交互，内容不会发送或保存。</p><form id="demo-form"><label>称呼<input name="name" autocomplete="off" placeholder="请输入测试称呼" maxlength="40" required></label><label>联系邮箱<input name="email" type="email" autocomplete="off" placeholder="demo@example.com" maxlength="120" required></label><label id="message-field">咨询内容<textarea name="message" rows="3" placeholder="描述你想了解的服务（演示）" maxlength="500"></textarea></label><button class="button" id="form-submit" type="submit">体验提交</button><p id="form-result" role="status" aria-live="polite"></p></form><div id="article-body" hidden></div></dialog>
 </body>
 </html>

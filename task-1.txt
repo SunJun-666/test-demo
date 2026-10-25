@@ -1,0 +1,8 @@
+GitHub 任务协作测试
+
+关联任务：https://github.com/SunJun-666/test-demo/issues/1
+任务负责人：SunJun-666
+任务分支：codex/issue-1-readme-sync
+
+本文件用于验证任务认领后新增文件、提交并推送至 GitHub 的协作流程。
+这是一份纯文本测试文件，无需运行或安装依赖。
